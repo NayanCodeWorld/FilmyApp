@@ -28,9 +28,19 @@
         justify-content: space-between;
     }
     .logo {
+        
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
         img {
             height: 40px;
+        }
+        .logo-heading{
+            font-size: 35px;
+            font-family: serif;
+            color: var(--pink);
         }
     }
     .menuItems {

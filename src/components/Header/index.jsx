@@ -67,9 +67,6 @@ const Header = () => {
         if(event.key === 'Enter' && query.length > 0) {
             navigate(`/search/${query}`)
         }
-        setTimeout(() => {
-            setShowSearch(false)
-        }, 1000)
     }
 
     const navigationHandler = (type) => {
@@ -85,8 +82,9 @@ const Header = () => {
     return(
         <header className={`header ${mobileMenu && 'mobileView'} ${show}`}>
             <ContentWrapper >
-                <div className="logo">
+                <div className="logo" onClick={() => navigate('/')}>
                     <img src={logo} alt="Filmy" />
+                    <span className="logo-heading">Filmy</span>
                 </div>
                 {/* Navigation Link Container for laptop view */}
                 <ul className="menuItems">
@@ -118,6 +116,7 @@ const Header = () => {
                                     placeholder="Search for a movie or tv show..." 
                                     onChange={(event) => setQuery(event.target.value)}
                                     onKeyUp={searchQueryHandler}
+                                    onBlur={() => setShowSearch(false)}
                                 />
                                     <VscChromeClose onClick={() => setShowSearch(false)} />
                             </div>

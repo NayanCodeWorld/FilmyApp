@@ -12,6 +12,7 @@ import ContentWrapper from '../ContentWrapper'
 import Lazyloade from '../LazyLoad'
 import PosterFallback from '../../assets/no-poster.png'
 import CircleRating from '../CircleRating'
+import Genres from '../Genres'
 
 import './index.scss'
 
@@ -77,6 +78,7 @@ const Carousel = (props) => {
                     <CircleRating rating={
                       item.vote_average.toFixed(1)
                     } />
+                    {/* <Genres data={item.genre_ids.slice(0,2)} /> */}
                   </div>
                   <div className="textBlock">
                     <span className="title">

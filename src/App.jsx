@@ -5,7 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 
 // import Actions(method) from 'homeSlice to handle state 
-import {getApiConfigration} from './reduxStore/homeSlice'
+import {getApiConfigration, getGenres} from './reduxStore/homeSlice'
 
 //import the methods from the store to handle state
 import {fetchDataFromAPI} from './utils/api'
@@ -31,6 +31,7 @@ const App = () => {
 
   useEffect(() =>{
     fetchApiCongi();
+    genersCall();
   },[])
 
   const fetchApiCongi = async() => {
@@ -43,6 +44,23 @@ const App = () => {
     }
     //assign fetched data is redux state by using instance of useDispatch hook
     dispatch(getApiConfigration(url))
+  }
+
+  const genersCall = async() => {
+    let promises = [] 
+    let endPoints = ["tv", "movie"]
+    let allGenres = {}
+
+    endPoints?.forEach((url) => {
+      promises.push(fetchDataFromAPI(`geners/${url}/list`))
+    })
+    console.log(promises)
+    const data = await Promise.all(promises)
+    data.map((geners) => {
+      return geners.map((gener) => {allGenres[gener.id] = gener})
+    })
+    console.log(allGenres)
+    dispatch(getGenres(allGenres))
   }
 
   return (
