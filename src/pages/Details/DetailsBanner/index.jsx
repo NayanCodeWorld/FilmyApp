@@ -7,7 +7,7 @@ import ContentWrapper from "../../../components/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
 import Lazyload from '../../../components/Lazyload'
 import PosterFallback from "../../../assets/no-poster.png"
-import Genres from "../../../components/Genres";
+// import Genres from "../../../components/Genres";
 import CircleRating from "../../../components/CircleRating";
 import { Playbtn } from "../../../components/Playbtn";
 import VideoPopup from "../../../components/VideoPopup";
@@ -23,7 +23,7 @@ const DetailsBanner = ({video, crew}) => {
 
     const {url} = useSelector((state) => state.home)
 
-    const _genres = data?.genres?.map((g) => g.id)
+    // const _genres = data?.genres?.map((g) => g.id)
 
     const director = crew?.filter((f) => f.job === "Director")
 
@@ -67,7 +67,7 @@ const DetailsBanner = ({video, crew}) => {
                                     <div className="subtitle">
                                         {data.tagline}
                                     </div>
-                                    <Genres data={_genres} />
+                                    {/* <Genres data={_genres} /> */}
                                     <div className="row">
                                         <CircleRating rating={data.vote_average.toFixed(1)} />
                                         <div className="playbtn"

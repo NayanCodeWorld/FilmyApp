@@ -9,10 +9,10 @@ import {
 } from 'react-icons/bs'
 
 import ContentWrapper from '../ContentWrapper'
-import Lazyloade from '../LazyLoad'
+import Lazyloade from '../Lazyload'
 import PosterFallback from '../../assets/no-poster.png'
 import CircleRating from '../CircleRating'
-import Genres from '../Genres'
+// import Genres from '../Genres'
 
 import './index.scss'
 
@@ -65,7 +65,7 @@ const Carousel = (props) => {
             ref={carouselContainerRef}
           >
             {props.data?.map((item) => {
-              console.log(item.id)
+              // console.log(item.id)
               const posterUrl = item.poster_path ? url.poster + item.poster_path : PosterFallback
               return (
                 <div 
